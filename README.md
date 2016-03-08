@@ -4,6 +4,9 @@ Generates custom length promo codes. Amount, length and characters are configura
 ## But why?
 Past few months I had to generate tons of codes for promo games. Every time I wrote custom code, so I decided not to reinvent the wheel and create a little library. Hope I can save someone some time :)
 
+## Requirements
+- PHP 5.4 or higher
+
 ## Installation
 - [Download the archive](https://github.com/nikolay-mihaylov/php-promocode-generator/archive/master.zip)
 - Composer - **coming soon**
