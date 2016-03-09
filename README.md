@@ -15,9 +15,9 @@ Past few months I had to generate tons of codes for promo games. Every time I wr
 ```php
   // Those are the default options. If needed overwrite them when instantiating the object.
   $defaults = [
-    'length' => 5,
-    'amount' => 10,
-    'characters' => '123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    'length' => 5, // How long should the code be?
+    'amount' => 10, // How many codes to generate?
+    'characters' => '123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZ' // What characters should be used for the codes?
   ];
 ```
 
