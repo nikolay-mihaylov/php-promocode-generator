@@ -123,7 +123,7 @@ class CodeGenerator
         // Check possible combinations count
         $possibleCombinations = pow($this->getCharactersCount(), $this->getLength());    
         if ($this->getAmount() > $possibleCombinations) {
-            throw new \Exception('Code amount exceeds the possible combinations count of '. $possibleCombinations); 
+            throw new Exception('Code amount exceeds the possible combinations count of '. $possibleCombinations); 
         }              
              
         // check how many codes are left
