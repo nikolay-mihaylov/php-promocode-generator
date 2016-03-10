@@ -161,11 +161,11 @@ class CodeGenerator
         }
     }  
     
-	/**
-	 * Check how many codes are left to be generated.
-	 * 
-	 * @return integer.
-	 */          
+    /**
+     * Check how many codes are left to be generated.
+     * 
+     * @return integer.
+     */          
     private function checkProgress()
     {
         return $this->getAmount() - count($this->_codes);
