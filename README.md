@@ -13,38 +13,72 @@ Past few months I had to generate tons of codes for promo games. Every time I wr
 
 ## Options
 ```php
-  // Those are the default options. If needed overwrite them when instantiating the object.
-  $defaults = [
-    'length' => 5, // How long should the code be?
-    'amount' => 10, // How many codes to generate?
-    'characters' => '123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZ' // What characters should be used for the codes?
-  ];
+  $obj = new Rilog\CodeGenerator();
+  
+  // Set code Length. Default: 5 characters
+  $obj->setLength(10);
+  
+  // Set amount of codes to be generated. Default: 10 codes
+  $obj->setAmount(10);  
+  
+  // Set allowed characters to be used for generation. Default: 123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  $obj->setCharacters(123456789); 
 ```
 
 ## Usage
 You can view sample code in example folder.
 ```php
-  require_once 'src/CodeGenerator.php'; 
+    require_once '../src/CodeGenerator.php';
+      
+    // Using with default values  
+    $obj = new Rilog\CodeGenerator();       
+    $codes = $obj->getCodes(); 
+    
+    echo '<pre>';
+    print_r($codes);
+    exit;
+     
+    /* Prints
+        Array
+        (
+            [0] => 5P6XF
+            [1] => FBGOW
+            [2] => K2REN
+            [3] => MS9GO
+            [4] => DDYJK
+            [5] => YVSWR
+            [6] => CKY46
+            [7] => ZF7D4
+            [8] => B2YJ5
+            [9] => 2TS8O
+        )
+    */
         
-  $obj = new Rilog\CodeGenerator([
-    'length' => 6,
-    'amount' => 10,
-  ]);  
-  $codes = $obj->getCodes(); 
-  
-  // prints
-  Array
-  (
-      [0] => M7B-WM
-      [1] => 8R1P4I
-      [2] => 2ORNKW
-      [3] => Q5EZGL
-      [4] => PF7AN8
-      [5] => W5XKA8
-      [6] => GDHE3T
-      [7] => -7CY34
-      [8] => 5POXFM
-      [9] => OCUCTI
-  )  
+    // Setting custom values 
+    $obj = new Rilog\CodeGenerator();
+    $obj->setLength(8);    
+    $obj->setAmount(10);    
+    $obj->setCharacters('abcdef123456');    
+    $codes = $obj->getCodes(); 
+    
+    echo '<pre>';
+    print_r($codes);
+    exit;    
+    
+    /* Prints
+        Array
+        (
+            [0] => a36fba5b
+            [1] => 1ebeaf2a
+            [2] => 1dc144b1
+            [3] => d663ae65
+            [4] => be45a2d3
+            [5] => ad6542c1
+            [6] => dfa36d4d
+            [7] => c6c1f32e
+            [8] => 3ca5db2b
+            [9] => df3d3166
+        )    
+    */
 ```
 
