@@ -11,7 +11,7 @@ class CodeGenerator
      *
      * @var array
      */       
-    private $_codes = [];    
+    private $_codes = array();    
     
     /**
      * Length of each code.
