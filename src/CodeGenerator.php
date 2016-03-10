@@ -34,12 +34,12 @@ class CodeGenerator
      */        
     private $_characters;   
     
-	/**
-	 * Set code length.
-	 *
-	 * @param integer $number.
-	 * @return void.
-	 */    
+    /**
+     * Set code length.
+     *
+     * @param integer $number.
+     * @return void.
+     */    
     public function setLength($number)
     {
         if ((int) $number <= 0) {
@@ -48,22 +48,22 @@ class CodeGenerator
         $this->_length = (int) $number;
     }    
     
-	/**
-	 * Get code length.
-	 *
-	 * @return integer.
-	 */      
+    /**
+     * Get code length.
+     *
+     * @return integer.
+     */      
     public function getLength()
     { 
         return (empty($this->_length)) ? 5 : $this->_length;
     }  
 
-	/**
-	 * Set amount of codes to be generated.
-	 *
-	 * @param integer $number.
-	 * @return void.
-	 */    
+    /**
+     * Set amount of codes to be generated.
+     *
+     * @param integer $number.
+     * @return void.
+     */    
     public function setAmount($number)
     {
         if ((int) $number <= 0) {
@@ -72,32 +72,32 @@ class CodeGenerator
         $this->_amount = (int) $number;
     }        
     
-	/**
-	 * Get code amount.
-	 *
-	 * @return integer.
-	 */      
+    /**
+     * Get code amount.
+     *
+     * @return integer.
+     */      
     public function getAmount()
     { 
         return (empty($this->_amount)) ? 10 : $this->_amount;        
     }
     
-	/**
-	 * Set characters to be used for generation.
-	 *
-	 * @param string $characters.
-	 * @return void.
-	 */    
+    /**
+     * Set characters to be used for generation.
+     *
+     * @param string $characters.
+     * @return void.
+     */    
     public function setCharacters($characters)
     {
         $this->_characters = $characters;
     }        
     
-	/**
-	 * Get characters.
-	 *
-	 * @return string.
-	 */      
+    /**
+     * Get characters.
+     *
+     * @return string.
+     */      
     public function getCharacters()
     { 
         return (empty($this->_characters)) ? '123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZ' : $this->_characters;   
@@ -113,11 +113,11 @@ class CodeGenerator
         return mb_strlen($this->getCharacters(), '8bit');   
     }
     
-	/**
-	 * Returns the generated codes
-	 *
-	 * @return array.
-	 */         
+    /**
+     * Returns the generated codes
+     *
+     * @return array.
+     */         
     public function getCodes()
     {  
         // Check possible combinations count
@@ -134,12 +134,12 @@ class CodeGenerator
         return array_keys($this->_codes);
     }
     
-	/**
-	 * Generate codes.
-	 *
+    /**
+     * Generate codes.
+     *
      * @param integer $codesLeft
-	 * @return void.
-	 */             
+     * @return void.
+     */             
     private function generate($codesLeft)
     {
         // generate codes
