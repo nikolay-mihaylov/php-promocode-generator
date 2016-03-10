@@ -103,11 +103,11 @@ class CodeGenerator
         return (empty($this->_characters)) ? '123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZ' : $this->_characters;   
     }
     
-	/**
-	 * Get available characters count.
-	 *
-	 * @return integer
-	 */      
+    /**
+     * Get available characters count.
+     *
+     * @return integer
+     */      
     public function getCharactersCount()
     {  
         return mb_strlen($this->getCharacters(), '8bit');   
