@@ -20,6 +20,9 @@ Past few months I had to generate tons of codes for promo games. Every time I wr
   
   // Set allowed characters to be used for generation. Default: 123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZ
   $obj->setCharacters(123456789); 
+  
+  // Get the codes
+  $codes = $obj->getCodes(); 
 ```
 
 ## Usage
