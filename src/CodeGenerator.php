@@ -37,8 +37,8 @@ class CodeGenerator
     /**
      * Set code length.
      *
-     * @param integer $number.
-     * @return void.
+     * @param integer $number
+     * @return void
      */    
     public function setLength($number)
     {
@@ -51,7 +51,7 @@ class CodeGenerator
     /**
      * Get code length.
      *
-     * @return integer.
+     * @return integer
      */      
     public function getLength()
     { 
@@ -61,8 +61,8 @@ class CodeGenerator
     /**
      * Set amount of codes to be generated.
      *
-     * @param integer $number.
-     * @return void.
+     * @param integer $number
+     * @return void
      */    
     public function setAmount($number)
     {
@@ -75,7 +75,7 @@ class CodeGenerator
     /**
      * Get code amount.
      *
-     * @return integer.
+     * @return integer
      */      
     public function getAmount()
     { 
@@ -85,8 +85,8 @@ class CodeGenerator
     /**
      * Set characters to be used for generation.
      *
-     * @param string $characters.
-     * @return void.
+     * @param string $characters
+     * @return void
      */    
     public function setCharacters($characters)
     {
@@ -96,7 +96,7 @@ class CodeGenerator
     /**
      * Get characters.
      *
-     * @return string.
+     * @return string
      */      
     public function getCharacters()
     { 
@@ -106,7 +106,7 @@ class CodeGenerator
 	/**
 	 * Get available characters count.
 	 *
-	 * @return integer.
+	 * @return integer
 	 */      
     public function getCharactersCount()
     {  
@@ -116,7 +116,7 @@ class CodeGenerator
     /**
      * Returns the generated codes
      *
-     * @return array.
+     * @return array
      */         
     public function getCodes()
     {  
@@ -138,7 +138,7 @@ class CodeGenerator
      * Generate codes.
      *
      * @param integer $codesLeft
-     * @return void.
+     * @return void
      */             
     private function generate($codesLeft)
     {
@@ -164,7 +164,7 @@ class CodeGenerator
     /**
      * Check how many codes are left to be generated.
      * 
-     * @return integer.
+     * @return integer
      */          
     private function checkProgress()
     {
