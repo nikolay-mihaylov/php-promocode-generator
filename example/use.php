@@ -1,15 +1,15 @@
 <?php
 
     require_once '../src/CodeGenerator.php';
-      
-    // Using with default values  
-    $obj = new Rilog\CodeGenerator();       
-    $codes = $obj->getCodes(); 
-    
+
+    // Using with default values
+    $obj = new Rilog\CodeGenerator();
+    $codes = $obj->getCodes();
+
     echo '<pre>';
     print_r($codes);
     exit;
-     
+
     /* Prints
         Array
         (
@@ -25,18 +25,18 @@
             [9] => 2TS8O
         )
     */
-        
-    // Setting custom values 
+
+    // Setting custom values
     $obj = new Rilog\CodeGenerator();
-    $obj->setLength(8);    
-    $obj->setAmount(10);    
-    $obj->setCharacters('abcdef123456');    
-    $codes = $obj->getCodes(); 
-    
+    $obj->setLength(8);
+    $obj->setAmount(10);
+    $obj->setCharacters('abcdef123456');
+    $codes = $obj->getCodes();
+
     echo '<pre>';
     print_r($codes);
-    exit;    
-    
+    exit;
+
     /* Prints
         Array
         (
@@ -50,6 +50,5 @@
             [7] => c6c1f32e
             [8] => 3ca5db2b
             [9] => df3d3166
-        )    
+        )
     */
-    
