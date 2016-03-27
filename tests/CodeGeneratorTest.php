@@ -3,6 +3,7 @@
 namespace Rilog\Tests;
 
 require_once __DIR__ . '/../src/CodeGenerator.php';
+
 use Rilog\CodeGenerator;
 
 class CodeGeneratorTest extends \PHPUnit_Framework_TestCase
