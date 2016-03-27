@@ -2,7 +2,7 @@
 
 namespace Rilog;
 
-use Exception;
+use InvalidArgumentException;
 
 class CodeGenerator
 {
@@ -12,13 +12,6 @@ class CodeGenerator
      * @var array
      */
     private $_codes = array();
-
-    /**
-     * Length of each code.
-     *
-     * @var integer
-     */
-    private $_length;
 
     /**
      * Amount of generated codes.
@@ -35,17 +28,28 @@ class CodeGenerator
     private $_characters;
 
     /**
-     * Set code length.
+     * Mask template.
      *
-     * @param integer $number
+     * Example: XXXX-XXXX-XXXX
+     *          XX~~XX_XXXX
+     * Default: XXXXX
+     *
+     * @var string Code placeholders must be defined with X.
+     */
+    private $_mask;
+
+    /**
+     * Set mask.
+     *
+     * @param string $mask
      * @return void
      */
-    public function setLength($number)
+    public function setMask($mask)
     {
-        if ((int) $number <= 0) {
-            throw new Exception('Length must be integer greater than 0');
+        if (substr_count($mask, 'X') < 1) {
+            throw new InvalidArgumentException('Mask should contain at least one X symbol.');
         }
-        $this->_length = (int) $number;
+        $this->_mask = $mask;
     }
 
     /**
@@ -53,9 +57,9 @@ class CodeGenerator
      *
      * @return integer
      */
-    public function getLength()
+    public function getMask()
     {
-        return (empty($this->_length)) ? 5 : $this->_length;
+        return (empty($this->_mask)) ? 'XXXXX' : $this->_mask;
     }
 
     /**
@@ -67,7 +71,7 @@ class CodeGenerator
     public function setAmount($number)
     {
         if ((int) $number <= 0) {
-            throw new Exception('Amount must be integer greater than 0');
+            throw new InvalidArgumentException('Amount must be integer greater than 0');
         }
         $this->_amount = (int) $number;
     }
@@ -100,7 +104,7 @@ class CodeGenerator
      */
     public function getCharacters()
     {
-        return (empty($this->_characters)) ? '123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZ' : $this->_characters;
+        return (empty($this->_characters)) ? '0123456789ABCDEFGHIJKLMNPQRSTUVWXYZ' : $this->_characters;
     }
 
     /**
@@ -114,6 +118,16 @@ class CodeGenerator
     }
 
     /**
+     * Get mask length without hiphens.
+     *
+     * @return integer
+     */
+    public function getLength()
+    {
+        return substr_count($this->getMask(), 'X');
+    }
+
+    /**
      * Returns the generated codes
      *
      * @return array
@@ -123,7 +137,7 @@ class CodeGenerator
         // Check possible combinations count
         $possibleCombinations = pow($this->getCharactersCount(), $this->getLength());
         if ($this->getAmount() > $possibleCombinations) {
-            throw new Exception('Code amount exceeds the possible combinations count of '. $possibleCombinations);
+            throw new InvalidArgumentException('Code amount exceeds the possible combinations count of '. $possibleCombinations);
         }
 
         // check how many codes are left
@@ -142,14 +156,17 @@ class CodeGenerator
      */
     private function generate($codesLeft)
     {
-        // generate codes
         $characters = $this->getCharacters();
         $max = $this->getCharactersCount() - 1;
         $codeLength = $this->getLength();
+        $mask = $this->getMask();
         for ($c = 0; $c < $codesLeft; ++$c) {
-            $code = '';
+            $code = $mask;
             for ($i = 0; $i < $codeLength; ++$i) {
-                $code .= $characters[mt_rand(0, $max)];
+                $pos = strpos($code, 'X');
+                if ($pos !== false) {
+                    $code = substr_replace($code, $characters[mt_rand(0, $max)], $pos, 1);
+                }
             }
             $this->_codes[$code] = '';
         }

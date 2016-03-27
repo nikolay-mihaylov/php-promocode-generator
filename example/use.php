@@ -2,8 +2,11 @@
 
     require_once '../src/CodeGenerator.php';
 
-    // Using with default values
+    // Using custom values
     $obj = new Rilog\CodeGenerator();
+    $obj->setMask('XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX');
+    $obj->setAmount(5);
+    $obj->setCharacters('0123456789');
     $codes = $obj->getCodes();
 
     echo '<pre>';
@@ -13,42 +16,10 @@
     /* Prints
         Array
         (
-            [0] => 5P6XF
-            [1] => FBGOW
-            [2] => K2REN
-            [3] => MS9GO
-            [4] => DDYJK
-            [5] => YVSWR
-            [6] => CKY46
-            [7] => ZF7D4
-            [8] => B2YJ5
-            [9] => 2TS8O
-        )
-    */
-
-    // Setting custom values
-    $obj = new Rilog\CodeGenerator();
-    $obj->setLength(8);
-    $obj->setAmount(10);
-    $obj->setCharacters('abcdef123456');
-    $codes = $obj->getCodes();
-
-    echo '<pre>';
-    print_r($codes);
-    exit;
-
-    /* Prints
-        Array
-        (
-            [0] => a36fba5b
-            [1] => 1ebeaf2a
-            [2] => 1dc144b1
-            [3] => d663ae65
-            [4] => be45a2d3
-            [5] => ad6542c1
-            [6] => dfa36d4d
-            [7] => c6c1f32e
-            [8] => 3ca5db2b
-            [9] => df3d3166
+            [0] => 6499-0044-2728-1142-3941-4016-7557
+            [1] => 3915-4036-5728-8593-0505-1111-2745
+            [2] => 0341-3506-9507-2965-6818-5935-4476
+            [3] => 0381-1599-9759-4471-8571-2706-4295
+            [4] => 0316-7460-6279-4366-3328-0763-2156
         )
     */
